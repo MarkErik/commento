@@ -7,7 +7,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func commenterNew(email string, name string, provider string, password string) (string, error) {
+func commenterNew(email string, name string, link string, photo string, provider string, password string) (string, error) {
 	if email == "" || name == "" || link == "" || photo == "" || provider == "" {
 		return "", errorMissingField
 	}
@@ -19,9 +19,9 @@ func commenterNew(email string, name string, provider string, password string) (
 	// See utils_sanitise.go's documentation on isHttpsUrl. This is not a URL
 	// validator, just an XSS preventor.
 	// TODO: reject URLs instead of malforming them.
-	// if link != "undefined" && !isHttpsUrl(link) {
-	// 	link = "https://" + link
-	// }
+	if link != "undefined" && !isHttpsUrl(link) {
+		link = "https://" + link
+	}
 
 	if _, err := commenterGetByEmail(provider, email); err == nil {
 		return "", errorEmailAlreadyExists
@@ -50,7 +50,7 @@ func commenterNew(email string, name string, provider string, password string) (
 		commenters (commenterHex, email, name, link, photo, provider, passwordHash, joinDate)
 		VALUES     ($1,           $2,    $3,   $4,   $5,    $6,       $7,           $8      );
 	`
-	_, err = db.Exec(statement, commenterHex, email, name, provider, string(passwordHash), time.Now().UTC())
+	_, err = db.Exec(statement, commenterHex, email, name, link, photo, provider, string(passwordHash), time.Now().UTC())
 	if err != nil {
 		logger.Errorf("cannot insert commenter: %v", err)
 		return "", errorInternal
