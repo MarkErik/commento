@@ -20,7 +20,7 @@
   var ID_LOGIN_BOX_EMAIL_INPUT = "commento-login-box-email-input";
   var ID_LOGIN_BOX_PASSWORD_INPUT = "commento-login-box-password-input";
   var ID_LOGIN_BOX_NAME_INPUT = "commento-login-box-name-input";
-  //var ID_LOGIN_BOX_WEBSITE_INPUT = "commento-login-box-website-input";
+  var ID_LOGIN_BOX_WEBSITE_INPUT = "commento-login-box-website-input";
   var ID_LOGIN_BOX_EMAIL_BUTTON = "commento-login-box-email-button";
   var ID_LOGIN_BOX_FORGOT_LINK_CONTAINER = "commento-login-box-forgot-link-container";
   var ID_LOGIN_BOX_LOGIN_LINK_CONTAINER = "commento-login-box-login-link-container";
@@ -1818,7 +1818,7 @@
   global.signup = function(id) {
     var email = $(ID_LOGIN_BOX_EMAIL_INPUT);
     var name = $(ID_LOGIN_BOX_NAME_INPUT);
-    var website = "";
+    var website = $(ID_LOGIN_BOX_WEBSITE_INPUT);
     var password = $(ID_LOGIN_BOX_PASSWORD_INPUT);
 
     var json = {
@@ -1864,7 +1864,7 @@
       order = ["name", "password"];
       fid = [ID_LOGIN_BOX_NAME_INPUT, ID_LOGIN_BOX_PASSWORD_INPUT];
       type = ["text", "text", "password"];
-      placeholder = ["Real Name", "Password"];
+      placeholder = ["Display Name", "Password"];
     } else {
       order = ["password"];
       fid = [ID_LOGIN_BOX_PASSWORD_INPUT];
