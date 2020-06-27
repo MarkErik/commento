@@ -63,7 +63,7 @@ func commenterNewHandler(w http.ResponseWriter, r *http.Request) {
 	type request struct {
 		Email    *string `json:"email"`
 		Name     *string `json:"name"`
-		// Website  *string `json:"website"`
+		Website  *string `json:"website"`
 		Password *string `json:"password"`
 	}
 
@@ -76,11 +76,11 @@ func commenterNewHandler(w http.ResponseWriter, r *http.Request) {
 	// TODO: add gravatar?
 	// TODO: email confirmation if provider = commento?
 	// TODO: email confirmation if provider = commento?
-	// if *x.Website == "" {
-	// 	*x.Website = "undefined"
-	// }
+	if *x.Website == "" {
+		*x.Website = "undefined"
+	}
 
-	if _, err := commenterNew(*x.Email, *x.Name, "undefined", "commento", *x.Password); err != nil {
+	if _, err := commenterNew(*x.Email, *x.Name, *x.Website, "undefined", "commento", *x.Password); err != nil {
 		bodyMarshal(w, response{"success": false, "message": err.Error()})
 		return
 	}
