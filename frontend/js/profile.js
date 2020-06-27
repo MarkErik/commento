@@ -23,8 +23,8 @@
       "commenterToken": global.paramGet("commenterToken"),
       "name": $("#name").val(),
       "email": $("#email").val(),
-      "link": $("#link").val(),
-      "photo": $("#photo").val(),
+      // "link": $("#link").val(),
+      // "photo": $("#photo").val(),
     };
 
     global.buttonDisable("#save-button");
