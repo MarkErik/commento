@@ -62,7 +62,7 @@
   var ID_SUBMIT_BUTTON = "commento-submit-button-";
   //var ID_MARKDOWN_BUTTON = "commento-markdown-button-";
   //var ID_MARKDOWN_HELP = "commento-markdown-help-";
-  var ID_FOOTER = "commento-footer";
+  //var ID_FOOTER = "commento-footer";
 
 
   var origin = "[[[.Origin]]]";
@@ -372,30 +372,30 @@
   }
 
 
-  function footerLoad() {
-    var footer = create("div");
-    var aContainer = create("div");
-    var a = create("a");
-    var text = create("span");
+  // function footerLoad() {
+  //   var footer = create("div");
+  //   var aContainer = create("div");
+  //   var a = create("a");
+  //   var text = create("span");
 
-    footer.id = ID_FOOTER;
+  //   footer.id = ID_FOOTER;
 
-    classAdd(footer, "footer");
-    classAdd(aContainer, "logo-container");
-    classAdd(a, "logo");
-    classAdd(text, "logo-text");
+  //   classAdd(footer, "footer");
+  //   classAdd(aContainer, "logo-container");
+  //   classAdd(a, "logo");
+  //   classAdd(text, "logo-text");
 
-    attrSet(a, "href", "https://commento.io");
-    attrSet(a, "target", "_blank");
+  //   attrSet(a, "href", "https://commento.io");
+  //   attrSet(a, "target", "_blank");
 
-    text.innerText = "Commento";
+  //   text.innerText = "Commento";
 
-    append(a, text);
-    append(aContainer, a);
-    append(footer, aContainer);
+  //   append(a, text);
+  //   append(aContainer, a);
+  //   append(footer, aContainer);
 
-    return footer;
-  }
+  //   return footer;
+  // }
 
 
   function commentsGet(callback) {
@@ -2141,7 +2141,7 @@
 
     mainAreaCreate();
 
-    var footer = footerLoad();
+    //var footer = footerLoad();
     cssLoad(cdn + "/css/commento.css", loadCssOverride);
 
     selfGet(function() {
