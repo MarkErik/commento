@@ -41,6 +41,7 @@ COPY --from=frontend-build /commento/frontend/build/prod/fonts /commento/fonts
 COPY --from=frontend-build /commento/frontend/build/prod/*.html /commento/
 COPY --from=templates-db-build /commento/templates/build/prod/templates /commento/templates/
 COPY --from=templates-db-build /commento/db/build/prod/db /commento/db/
+COPY ./robots.txt /commento/
 
 EXPOSE 8080
 WORKDIR /commento/
