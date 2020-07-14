@@ -387,6 +387,7 @@
 
   //   attrSet(a, "href", "https://commento.io");
   //   attrSet(a, "target", "_blank");
+  //attrSet(a, "rel", "noopener");
 
   //   text.innerText = "Commento";
 
@@ -2149,7 +2150,7 @@
         modToolsCreate();
         rootCreate(function() {
           commentsRender();
-          append(root, footer);
+          append(root);
           loadHash();
           allShow();
           nameWidthFix();
